@@ -1,5 +1,6 @@
 *
 !/.config/mimeapps.list
+!/.config/user-dirs.conf
 !/.config/user-dirs.dirs
 !/.gitignore.d/vc_xorg
 !/.xinitrc
