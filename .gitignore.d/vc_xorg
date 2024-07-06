@@ -1,6 +1,9 @@
 *
 !/.config
 !/.config/mimeapps.list
+!/.config/mr
+!/.config/mr/available.d
+!/.config/mr/available.d/vc_xorg
 !/.config/user-dirs.conf
 !/.config/user-dirs.dirs
 !/.gitignore.d
