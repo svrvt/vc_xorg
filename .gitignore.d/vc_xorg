@@ -27,3 +27,4 @@
 !/.gitignore.d/vc_xorg
 !/.xinitrc
 !/.xsession
+!/.xsessionrc

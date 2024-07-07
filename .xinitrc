@@ -13,4 +13,8 @@ if [ -d "$USERXINITRCDIR" ]; then
 	unset f
 fi
 
-[ -f "$USERXSESSION" ] && . "$USERXSESSION"
+export USERXINITRC_LOADED=true
+
+if [ "$USERXSESSION_LOADED" != "true" ]; then
+	[ -f "$USERXSESSION" ] && . "$USERXSESSION"
+fi

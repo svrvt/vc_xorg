@@ -1,8 +1,13 @@
 # vi: syntax=sh
 default_session="${default_session:-awesome}"
 
-# USERXINITRC=$HOME/.xinitrc
-# [ -n $session ] && . $USERXINITRC
+echo STARTUP=$STARTUP
+echo session=$session
+
+if [ -n "$session" ]; then 
+  return
+fi
+echo loaded $0
 
 if [ "$1" = xterm ] && [ -n "$2" ]; then
 	session="$2"
@@ -13,7 +18,6 @@ else
 fi
 
 echo "Starting $session"
-
 
 case $session in
 awesome | herbstluftwm | bspwm | dwm | unity | xmonad)
@@ -40,7 +44,6 @@ else
 	usermodmap=$HOME/.config/X11/Xmodmap
 	if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
 	if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
-
 	exec $STARTUP
 fi
 

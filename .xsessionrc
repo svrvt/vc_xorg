@@ -1,0 +1,6 @@
+#!/usr/bin/env bash 
+
+USERXSESSION=$HOME/.xsession
+
+[ -f "$USERXSESSION" ] && . "$USERXSESSION"
+
