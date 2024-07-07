@@ -1,0 +1,11 @@
+
+# force Xft on old GTK and QT applications
+export GDK_USE_XFT=1
+export QT_XFT=true
+# Java font rendering
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb'
+
+# Dota 2 font rendering fix
+#export MESA_GL_VERSION_OVERRIDE=2.1
+
+# vi: syntax=sh

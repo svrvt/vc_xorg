@@ -1,0 +1,46 @@
+# vi: syntax=sh
+default_session="${default_session:-awesome}"
+
+# USERXINITRC=$HOME/.xinitrc
+# [ -n $session ] && . $USERXINITRC
+
+if [ "$1" = xterm ] && [ -n "$2" ]; then
+	session="$2"
+elif [ -z "$1" ]; then
+	session="$default_session"
+else
+	session="$1"
+fi
+
+echo "Starting $session"
+
+
+case $session in
+awesome | herbstluftwm | bspwm | dwm | unity | xmonad)
+	STARTUP="$session"
+	;;
+
+cinnamon | mate | openbox)
+	STARTUP="$session-session"
+	;;
+
+xfce4 | kde)
+	STARTUP="start$session"
+	;;
+
+*)
+	STARTUP="$session"
+	;;
+esac
+
+if [ -f /etc/X11/Xsession ]; then
+	. /etc/X11/Xsession
+else
+	userresources=$HOME/.config/X11/Xresources
+	usermodmap=$HOME/.config/X11/Xmodmap
+	if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
+	if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
+
+	exec $STARTUP
+fi
+
