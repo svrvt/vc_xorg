@@ -1,18 +1,19 @@
 # vi: syntax=sh
 default_session="${default_session:-awesome}"
 
+env >~/.local/share/xorg/"xinitrc_env.${DISPLAY#:}.log" 2>&1
+
 echo STARTUP=$STARTUP
 echo session=$session
-
 if [ -n "$session" ]; then 
   return
 fi
 echo loaded $0
 
-if [ "$1" = xterm ] && [ -n "$2" ]; then
-	session="$2"
-elif [ -z "$1" ]; then
+if [ -z "$1" ]; then
 	session="$default_session"
+elif [ "$1" = xterm ] && [ -n "$2" ]; then
+	session="$2"
 else
 	session="$1"
 fi

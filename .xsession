@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-USERXSESSIONDIR=$HOME/.config/X11/xsession.d
-SESSIONFILES=$(run-parts --list "$USERXSESSIONDIR")
+set -e
 
 USERXINITRC=$HOME/.xinitrc
+USERXSESSIONDIR=$HOME/.config/X11/xsession.d
+SESSIONFILES=$(run-parts --list "$USERXSESSIONDIR")
 
 if [ "$USERXSESSION_LOADED" = "true" ]; then
 	return
@@ -23,3 +24,5 @@ if [ -n "$SESSIONFILES" ]; then
 	done
 	set -e
 fi
+
+exit 0
