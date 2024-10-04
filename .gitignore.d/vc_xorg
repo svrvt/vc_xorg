@@ -3,7 +3,8 @@
 !/.config/mimeapps.list
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/vc_xorg
+!/.config/mr/available.d/vc
+!/.config/mr/available.d/vc/vc_xorg
 !/.config/user-dirs.conf
 !/.config/user-dirs.dirs
 !/.config/X11
