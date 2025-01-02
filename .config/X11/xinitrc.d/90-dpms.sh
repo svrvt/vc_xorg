@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-xset s off -dpms
-xset m 0 0
+# xset s off -dpms
+xset m 600 600
 
