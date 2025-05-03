@@ -1,9 +1,11 @@
 
-[$HOME/src/build/sony-vaio-keyboard-utility]
+[$HOME/src/github.com/svrvt/sony-vaio-keyboard-utility]
 checkout =
 		git clone https://github.com/svrvt/sony-vaio-keyboard-utility.git sony-vaio-keyboard-utility &&
 		git remote add upstream https://github.com/gerarddejong/sony-vaio-keyboard-utility
-link = ln -snf $PWD $HOME/code/edit/sony-vaio-keyboard-utility.link
+link =
+		ln -snf $PWD $HOME/code/sony-vaio-keyboard-utility.link &&
+		ln -snf $PWD $HOME/src/build/sony-vaio-keyboard-utility.link
 
 
 # vi: ft=ini syntax=bash

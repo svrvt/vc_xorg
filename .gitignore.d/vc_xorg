@@ -3,8 +3,8 @@
 !/.config/mimeapps.list
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/build
-!/.config/mr/available.d/build/build-linux-drivers
+!/.config/mr/available.d/drivers.code.build.sony
+!/.config/mr/available.d/linux.drivers.build
 !/.config/mr/available.d/vc
 !/.config/mr/available.d/vc/vc_xorg
 !/.config/user-dirs.conf
