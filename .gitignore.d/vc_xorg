@@ -1,4 +1,11 @@
 *
+!/bin
+!/bin/desktop
+!/bin/desktop/create-xdg-dirs
+!/bin/desktop/define-app
+!/bin/desktop/file-manager
+!/bin/desktop/run-desktop
+!/bin/desktop/sensible-terminal
 !/.config
 !/.config/mimeapps.list
 !/.config/mr
