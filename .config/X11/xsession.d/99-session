@@ -3,12 +3,9 @@ default_session="${default_session:-awesome}"
 
 env >~/.local/share/xorg/"xinitrc_env.${DISPLAY#:}.log" 2>&1
 
-echo STARTUP=$STARTUP
-echo session=$session
-if [ -n "$session" ]; then 
-  return
+if [ -n "$session" ]; then
+	return
 fi
-echo loaded $0
 
 if [ -z "$1" ]; then
 	session="$default_session"
@@ -22,29 +19,32 @@ echo "Starting $session"
 
 case $session in
 awesome | herbstluftwm | bspwm | dwm | unity | xmonad)
-	STARTUP="$session"
+	START="$session"
 	;;
 
 cinnamon | mate | openbox)
-	STARTUP="$session-session"
+	START="$session-session"
 	;;
 
 xfce4 | kde)
-	STARTUP="start$session"
+	START="start$session"
 	;;
 
 *)
-	STARTUP="$session"
+	START="$session"
 	;;
 esac
 
-if [ -f /etc/X11/Xsession ]; then
-	. /etc/X11/Xsession
-else
-	userresources=$HOME/.config/X11/Xresources
-	usermodmap=$HOME/.config/X11/Xmodmap
-	if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
-	if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
-	exec $STARTUP
-fi
+userresources=$HOME/.config/X11/Xresources
+usermodmap=$HOME/.config/X11/Xmodmap
+
+if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
+if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
+
+exec $START
+
+# if [ -f /etc/X11/Xsession ]; then
+	# . /etc/X11/Xsession
+# else
+# fi
 

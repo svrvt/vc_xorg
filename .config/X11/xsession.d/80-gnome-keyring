@@ -1,4 +1,4 @@
 # Export session for gnome-keyring
-export DESKTOP_SESSION=gnome
+# export DESKTOP_SESSION=gnome
 
 # vi: syntax=sh

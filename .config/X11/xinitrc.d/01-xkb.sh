@@ -7,9 +7,9 @@ xkb_option=(\
 	'grp:switch' \
 )
 
-if localectl list-x11-keymap-options | grep -q 'caps:tmux_prefix'; then
-	xkb_option=("${xkb_option[@]}" 'caps:tmux_prefix')
-fi
+# if localectl list-x11-keymap-options | grep -q 'caps:tmux_prefix'; then
+# 	xkb_option=("${xkb_option[@]}" 'caps:tmux_prefix')
+# fi
 
 option_part=()
 

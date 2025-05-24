@@ -10,7 +10,6 @@
 !/.config/mimeapps.list
 !/.config/mr
 !/.config/mr/available.d
-!/.config/mr/available.d/build.sony.code
 !/.config/mr/available.d/vc.xorg
 !/.config/user-dirs.conf
 !/.config/user-dirs.dirs
@@ -21,10 +20,10 @@
 !/.config/X11/xinitrc.d/20-clipboard.sh
 !/.config/X11/xinitrc.d/50-nm-applet.sh
 !/.config/X11/xinitrc.d/60-pulseaudio.sh
-!/.config/X11/xinitrc.d/75-wallpaper.sh
 !/.config/X11/xinitrc.d/80-picom.sh
 !/.config/X11/xinitrc.d/90-dpms.sh
 !/.config/X11/xinitrc.d/95-xautolock.sh
+!/.config/X11/Xmodmap
 !/.config/X11/xsession.d
 !/.config/X11/xsession.d/05-programs
 !/.config/X11/xsession.d/12-gtk

@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 
+echo loaded 2 $0
 USERXINITRC=$HOME/.xinitrc
 USERXSESSIONDIR=$HOME/.config/X11/xsession.d
 SESSIONFILES=$(run-parts --list "$USERXSESSIONDIR")
@@ -26,3 +27,5 @@ if [ -n "$SESSIONFILES" ]; then
 fi
 
 exit 0
+
+# vim:set ai et sts=2 sw=2 tw=80:

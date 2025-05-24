@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Executed by startx (run your window manager from here)
 exec >~/.local/share/xorg/xinitrc."${DISPLAY#:}".log 2>&1
 
