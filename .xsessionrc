@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-echo loaded 3 $0
-
-USERXSESSION=$HOME/.xsession
-
-[ -f "$USERXSESSION" ] && . "$USERXSESSION"
-

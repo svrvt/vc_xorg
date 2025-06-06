@@ -1,11 +1,6 @@
 # vi: syntax=sh
+
 default_session="${default_session:-awesome}"
-
-env >~/.local/share/xorg/"xinitrc_env.${DISPLAY#:}.log" 2>&1
-
-if [ -n "$session" ]; then
-	return
-fi
 
 if [ -z "$1" ]; then
 	session="$default_session"
@@ -15,7 +10,7 @@ else
 	session="$1"
 fi
 
-echo "Starting $session"
+echo "session is $session"
 
 case $session in
 awesome | herbstluftwm | bspwm | dwm | unity | xmonad)
@@ -35,16 +30,8 @@ xfce4 | kde)
 	;;
 esac
 
-userresources=$HOME/.config/X11/Xresources
-usermodmap=$HOME/.config/X11/Xmodmap
-
-if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
-if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
-
-exec $START
-
-# if [ -f /etc/X11/Xsession ]; then
-	# . /etc/X11/Xsession
-# else
-# fi
-
+if [ -z "$STARTUP" ] && [ -f /etc/X11/Xsession ]; then
+ 	. /etc/X11/Xsession $START
+else
+	exec $START
+fi

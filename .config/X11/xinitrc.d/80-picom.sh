@@ -8,7 +8,7 @@ if command -v picom >/dev/null 2>&1; then
       else
          picom --daemon --config ~/.config/picom/picom.conf &
       fi
-   else
-      picom --daemon --config ~/.config/picom/picom.conf &
+   #else
+   #   picom --daemon --config ~/.config/picom/picom.conf &
    fi
 fi
