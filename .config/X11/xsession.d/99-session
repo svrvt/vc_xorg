@@ -1,5 +1,7 @@
 # vi: syntax=sh
 
+echo load $realpath $0
+
 default_session="${default_session:-awesome}"
 
 if [ -z "$1" ]; then
@@ -32,6 +34,6 @@ esac
 
 if [ -z "$STARTUP" ] && [ -f /etc/X11/Xsession ]; then
  	. /etc/X11/Xsession $START
-else
+elif [ ! -f /etc/X11/Xsession ] || [ $0 = $HOME/.xinitrc ] ; then
 	exec $START
 fi

@@ -1,31 +1,28 @@
 #!/bin/sh
-
 echo load .xsession $0
+env >~/.local/share/xorg/"xinitrc_env.${DISPLAY#:}.log" 2>&1
+set -e
 
 default_session="awesome"
-
+USERXSESSIONDIR="$HOME/.config/X11/xsession.d"
+SESSIONFILES="$(run-parts --list "$USERXSESSIONDIR")"
+USERXINITRC="$HOME/.xinitrc"
 userresources="$HOME/.config/X11/Xresources"
 usermodmap="$HOME/.config/X11/Xmodmap"
+
+[ "$0" != "$USERXINITRC" ] && [ -f "$USERXINITRC" ] && . "$USERXINITRC"
+
 if [ -f "$userresources" ]; then xrdb -merge "$userresources"; fi
 if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"; fi
 
-set -e
-USERXSESSIONDIR="$HOME/.config/X11/xsession.d"
-SESSIONFILES="$(run-parts --list "$USERXSESSIONDIR")"
 if [ -n "$SESSIONFILES" ]; then
-        set +e
+  set +e
 	for SESSIONFILE in $SESSIONFILES; do
 		. "$SESSIONFILE"
 	done
-        set -e
-fi
-USERXSESSION_LOADED="true"
-
-USERXINITRC="$HOME/.xinitrc"
-if [ "$USERXINITRC_LOADED" != "true" ]; then
-	[ -f "$USERXINITRC" ] && . "$USERXINITRC"
+  set -e
 fi
 
-exit 0
+#exit 0
 
 # vim:set ai et sts=2 sw=2 tw=80:

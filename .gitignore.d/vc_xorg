@@ -33,5 +33,5 @@
 !/.gitignore.d
 !/.gitignore.d/vc_xorg
 !/.xinitrc
+!/.xserverrc
 !/.xsession
-!/.xsessionrc

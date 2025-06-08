@@ -1,15 +1,7 @@
 
-if command -v nbrowser >/dev/null 2>&1; then
-	export BROWSER="nbrowser"
-elif command -v yandex-browser; then
-	export BROWSER=yandex-browser
-elif command -v brave-browser; then
-	export BROWSER=brave-browser
-elif command -v google-chrome; then
-	export BROWSER=google-chrome
-elif command -v firefox; then
-	export BROWSER=firefox
-else
-	export BROWSER=""
-fi
+for b in nbrowser yandex-browser google-chrome brave-browser firefox; do
+  if command -v $b >/dev/null 2>&1; then
+	  export BROWSER=$b
+  fi
+done
 # vim: syntax=sh
