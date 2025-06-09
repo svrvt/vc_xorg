@@ -32,8 +32,8 @@ xfce4 | kde)
 	;;
 esac
 
-if [ -z "$STARTUP" ] && [ -f /etc/X11/Xsession ]; then
- 	. /etc/X11/Xsession $START
+if [ $0 != $HOME/.xsession ] && [ -f /etc/X11/Xsession ]; then
+	. /etc/X11/Xsession $START
 elif [ ! -f /etc/X11/Xsession ] || [ $0 = $HOME/.xinitrc ] ; then
 	exec $START
 fi

@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 echo load .xsession $0
 env >~/.local/share/xorg/"xinitrc_env.${DISPLAY#:}.log" 2>&1
 set -e
