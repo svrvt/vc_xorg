@@ -3,8 +3,9 @@
 #setxkbmap -model pc104 -layout us,ru -option grp:shifts_toggle &
 
 xkb_option=(\
-	'grp:lalt_lshift_toggle' \
-	'grp:switch' \
+  'grp:toggle' \
+  'grp:rctrl_switch' \
+  'grp_led:caps ' \
 )
 
 # if localectl list-x11-keymap-options | grep -q 'caps:tmux_prefix'; then
